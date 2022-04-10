@@ -60,9 +60,9 @@
                         <label for="Type">Type</label>
                         <select class="form-control form-control-lg form-control-a" name="type" id="Type">
                             <option>All Type</option>
-                            <option>For Rent</option>
-                            <option>For Sale</option>
-                            <option>Open House</option>
+                            <option value="2">For Rent</option>
+                            <option value="1">For Sale</option>
+                            <option value="3">Open House</option>
                         </select>
                     </div>
                 </div>
@@ -85,12 +85,12 @@
                         <label for="bedrooms">Bedrooms</label>
                         <select class="form-control form-control-lg form-control-a" name="bedrooms" id="bedrooms">
                             <option>Any</option>
-                            <option>01</option>
-                            <option>02</option>
-                            <option>03</option>
-                            <option>04</option>
-                            <option>05</option>
-                            <option>06</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
                         </select>
                     </div>
                 </div>
@@ -99,12 +99,12 @@
                         <label for="garages">Garages</label>
                         <select class="form-control form-control-lg form-control-a" name="garages" id="garages">
                             <option>Any</option>
-                            <option>01</option>
-                            <option>02</option>
-                            <option>03</option>
-                            <option>04</option>
-                            <option>05</option>
-                            <option>06</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
                         </select>
                     </div>
                 </div>
@@ -113,12 +113,12 @@
                         <label for="bathrooms">Bathrooms</label>
                         <select class="form-control form-control-lg form-control-a" name="bathroom" id="bathrooms">
                             <option>Any</option>
-                            <option>01</option>
-                            <option>02</option>
-                            <option>03</option>
-                            <option>04</option>
-                            <option>05</option>
-                            <option>06</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
                         </select>
                     </div>
                 </div>
@@ -127,10 +127,10 @@
                         <label for="price">Min Price</label>
                         <select class="form-control form-control-lg form-control-a" name="price"id="price">
                             <option>Unlimite</option>
-                            <option>Rs:50,000</option>
-                            <option>Rs:100,000</option>
-                            <option>Rs:150,000</option>
-                            <option>Rs:200,000</option>
+                            <option>Rs:50000</option>
+                            <option>Rs:100000</option>
+                            <option>Rs:150000</option>
+                            <option>Rs:200000</option>
                         </select>
                     </div>
                 </div>
@@ -206,9 +206,24 @@
                     </div>
                 </li>
                 @auth
-                    <li class="nav-item">
-                        <a class="nav-link " href="/">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+                    <li class="nav-item dropdown">
+
+
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            {{\Illuminate\Support\Facades\Auth::user()->name}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+
+
+                        </div>
                     </li>
+
                     @else
                     <li class="nav-item dropdown">
 

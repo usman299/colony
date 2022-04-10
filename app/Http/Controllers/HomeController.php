@@ -28,7 +28,8 @@ class HomeController extends Controller
     }
     public function search(Request $request)
     {
-        $property = Property::where('title', 'like', '%' . $request->keyword . '%')->where('user_id', '1')->get();
-        dd($property);
+        $properties = Property::where('description', 'like', '%' . $request->block . '%')->Where('property_status', $request->type)->where('description', 'like', '%' . $request->keyword . '%')
+            ->Where('bed_room', $request->bedrooms)->Where('gerages', $request->garages)->Where('washroom', $request->bathroom)->orWhere('land_prize','<=',$request->price)->get();
+        return view("property_grid_rent",compact('properties'));
     }
 }

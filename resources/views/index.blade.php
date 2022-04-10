@@ -139,7 +139,7 @@
           <div class="card-box-c foo">
             <div class="card-header-c d-flex">
               <div class="card-box-ico">
-                <span class="fa fa-usd"></span>
+                <span class="fa fa-pkr"></span>
               </div>
               <div class="card-title-c align-self-center">
                 <h2 class="title-c">Instalment</h2>
